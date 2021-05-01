@@ -1,5 +1,6 @@
 import main
 
+
 class MovementHandler:
     game = main.gameClass.pythonGame
     gameClass = main.GameClass
@@ -35,7 +36,8 @@ class MovementHandler:
 
             # MOVEMENT FOR ONE KEY!
 
-        if keys_pressed[self.game.K_DOWN] and self.right_space_rect.y + main.gameClass.VEL + main.gameClass.CHARACTER_HEIGHT < main.gameClass.HEIGHT:
+        if keys_pressed[self.game.K_DOWN] and self.right_space_rect.y + main.gameClass.VEL + \
+                main.gameClass.CHARACTER_HEIGHT < main.gameClass.HEIGHT:
             self.right_space_rect.y += self.gameClass.VEL
             if self.rightspace_right:
                 self.RIGHT_SPACESHIP = self.game.transform.rotate(self.RIGHT_SPACESHIP, 270)
@@ -48,7 +50,8 @@ class MovementHandler:
             self.rightspace_left = False
             self.rightspace_right = False
 
-        if keys_pressed[self.game.K_LEFT] and self.right_space_rect.x - main.gameClass.VEL > main.gameClass.BORDER_WIDTH + main.gameClass.BORDER_THICKNESS / 2:
+        if keys_pressed[self.game.K_LEFT] and self.right_space_rect.x - main.gameClass.VEL > \
+                main.gameClass.BORDER_WIDTH + main.gameClass.BORDER_THICKNESS / 2:
             self.right_space_rect.x -= self.gameClass.VEL
             if self.rightspace_right:
                 self.RIGHT_SPACESHIP = self.game.transform.rotate(self.RIGHT_SPACESHIP, 180)
@@ -63,7 +66,8 @@ class MovementHandler:
 
             # MOVEMENT FOR ONE KEY!
 
-        if keys_pressed[self.game.K_RIGHT] and self.right_space_rect.x + main.gameClass.VEL + 5 + main.gameClass.CHARACTER_HEIGHT < main.gameClass.WIDTH:
+        if keys_pressed[self.game.K_RIGHT] and self.right_space_rect.x + main.gameClass.VEL + 5 + \
+                main.gameClass.CHARACTER_HEIGHT < main.gameClass.WIDTH:
             self.right_space_rect.x += self.gameClass.VEL
             if self.rightspace_down:
                 self.RIGHT_SPACESHIP = self.game.transform.rotate(self.RIGHT_SPACESHIP, 90)
@@ -124,7 +128,8 @@ class MovementHandler:
 
             # MOVEMENT FOR ONE KEY!
 
-        if keys_pressed[self.game.K_d] and self.left_space_rect.x + main.gameClass.VEL + main.gameClass.CHARACTER_HEIGHT < main.gameClass.BORDER_WIDTH:
+        if keys_pressed[self.game.K_d] and self.left_space_rect.x + main.gameClass.VEL + main.gameClass.CHARACTER_HEIGHT \
+                < main.gameClass.BORDER_WIDTH:
             self.left_space_rect.x += self.gameClass.VEL
             if self.leftspace_down:
                 self.LEFT_SPACESHIP = self.game.transform.rotate(self.LEFT_SPACESHIP, 90)
