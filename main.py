@@ -24,7 +24,10 @@ class GameClass:
     LEFT_SPACESHIP = game.transform.rotate(LEFT_SPACESHIP_IMAGE, 180)
     RIGHT_SPACESHIP = game.transform.scale(game.image.load(os.path.join('Assets', 'spaceship.png')), SCALE)
     CHARACTER_HEIGHT, DISTANCE_TEXT, WINNER_TEXT = 55, 10, ""
-    BULLET_HIT_SOUND, BULLET_FIRE_SOUND = game.mixer.Sound(os.path.join('Assets', 'Peng.mp3')), game.mixer.Sound(os.path.join('Assets', 'shot_sound.mp3'))
+    BULLET_FIRE_SOUND, BULLET_HIT_SOUND_A = game.mixer.Sound(os.path.join('Assets', 'Peng.mp3')),\
+                                            game.mixer.Sound(os.path.join('Assets', 'poof.mp3'))
+    BULLET_HIT_SOUND_B, BULLET_HIT_SOUND_C = game.mixer.Sound(os.path.join('Assets', 'pauw.mp3')), \
+                                             game.mixer.Sound(os.path.join('Assets', 'boom.mp3'))
     RED, GREEN, WHITE, BLACK = (255, 0, 0), (0, 255, 0), (255, 255, 255), (0, 0, 0)
     BACKGROUND, DELAY, RUN = game.transform.scale(game.image.load(os.path.join('Assets', 'background.png')), (WIDTH, HEIGHT)), 5, True
 

@@ -1,7 +1,7 @@
-import pygame.event
-
 import main as Main
 from Movement import MovementHandler as movement
+import random
+
 
 
 class ShootingHandler():
@@ -12,12 +12,14 @@ class ShootingHandler():
     HEALTH = 13
     LEFT_HEALTH, RIGHT_HEALTH = HEALTH, HEALTH
     LEFT_HIT, RIGHT_HIT = Main.game.USEREVENT + 1, Main.game.USEREVENT + 2
+    SOUNDS = [Main.gameClass.BULLET_HIT_SOUND_A, Main.gameClass.BULLET_HIT_SOUND_B, Main.gameClass.BULLET_HIT_SOUND_C]
 
     def handleBullets(self, left_bullets, right_bullets, left_spaceship, right_spaceship, left_health, right_health):
         for bullet in left_bullets:
             bullet.x += self.SHOOT_SPEED
             if right_spaceship.colliderect(bullet):
-                Main.gameClass.BULLET_HIT_SOUND.play()
+                sound = random.choice(self.SOUNDS)
+                sound.play()
                 Main.game.event.post(Main.game.event.Event(self.RIGHT_HIT))
                 left_bullets.remove(bullet)
             if bullet.x > Main.gameClass.WIDTH:
@@ -25,7 +27,8 @@ class ShootingHandler():
         for bullet in right_bullets:
             bullet.x -= self.SHOOT_SPEED
             if left_spaceship.colliderect(bullet):
-                Main.gameClass.BULLET_HIT_SOUND.play()
+                sound = random.choice(self.SOUNDS)
+                sound.play()
                 Main.game.event.post(Main.game.event.Event(self.LEFT_HIT))
                 right_bullets.remove(bullet)
             if bullet.x < 0:
