@@ -1,6 +1,8 @@
 import pygame as game
 import os
 
+# Initialize the game engine
+
 game.font.init()
 game.mixer.init()
 
